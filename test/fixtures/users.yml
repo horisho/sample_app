@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# DB用のサンプルデータらしい
+# 使わないのでコメントアウトする
+
+#one:
+#  name: MyString
+#  email: MyString
+
+#two:
+#  name: MyString
+#  email: MyString

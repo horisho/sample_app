@@ -15,6 +15,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'mini_racer', platforms: :ruby
 # Use bootstrap
 gem 'bootstrap-sass'
+# Use bcrypt to make password hashed
+gem 'bcrypt'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
