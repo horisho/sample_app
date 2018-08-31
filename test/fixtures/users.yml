@@ -3,6 +3,8 @@
 # DB用のサンプルデータらしい
 # 使わないのでコメントアウトする
 
+# users(:名前)で引き出せるようだ
+
 #one:
 #  name: MyString
 #  email: MyString
@@ -12,6 +14,7 @@
 #  email: MyString
 
 michael: 
+  id: 10000
   name: Michael Example
   email: michael.example.com
   password_digest: <%= User.digest('password') %>

@@ -17,6 +17,10 @@ gem 'mini_racer', platforms: :ruby
 gem 'bootstrap-sass'
 # Use bcrypt to make password hashed
 gem 'bcrypt'
+# Use jquery as the Javascript library
+gem 'jquery-rails'
+# Use jquery-UI as the Javascript library
+gem 'jquery-ui-rails'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
