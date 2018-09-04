@@ -21,6 +21,11 @@ gem 'bcrypt'
 gem 'jquery-rails'
 # Use jquery-UI as the Javascript library
 gem 'jquery-ui-rails'
+# Use faker in all environment
+gem 'faker'
+# Use will_paginate
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
