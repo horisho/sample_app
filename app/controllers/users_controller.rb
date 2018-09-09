@@ -4,12 +4,13 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.where(activated: true).paginate(page: params[:page])
     #params[:page]はpaginateによって自動的に生成される
   end
 
   def show
     @user = User.find(params[:id])
+    redirect_to root_url and return unless @user.activated?
   end
 
   def new
@@ -20,10 +21,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     # @user.saveはアクションの最後に保存に成功したか否かの真偽値を返す
     if @user.save
-      log_in @user
-      flash[:success] = "Welcome to the Sample App! "
-      # ↓はuser_path(@user)を略記して@userと書いている
-      redirect_to @user
+      @user.send_activation_email
+      flash[:info] = "Please check your email to activaate your account."
+      redirect_to root_url
     else
       # /users/newを表示する
       render 'new'
