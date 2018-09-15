@@ -14,13 +14,12 @@
 #  email: MyString
 
 michael: 
-  id: 10000
   name: Michael Example
   email: michael@example.com
   password_digest: <%= User.digest('password') %>
   admin: true
   activated: true
-  activated_at: <%= Time.zone.now %>
+  activated_at: <%= Time.zone.now %>x
 
 archer:
   name: Sterling Archer
@@ -41,6 +40,13 @@ malory:
   email: boss@example.gov
   password_digest: <%= User.digest('password') %>
   activated: false
+  activated_at: <%= Time.zone.now %>
+
+egg:
+  name: Egg Man
+  email: egg@maffin.com
+  password_digest: <%= User.digest('password') %>
+  activated: true
   activated_at: <%= Time.zone.now %>
             
 <% 30.times do |n| %>

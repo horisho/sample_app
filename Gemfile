@@ -26,6 +26,9 @@ gem 'faker'
 # Use will_paginate
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+# Use CarrierWace to add image to microposts
+gem 'carrierwave'
+gem 'mini_magick'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -76,6 +79,8 @@ end
 
 group :production do
   gem 'pg'
+  # よくわからんがエラーを吐くのでここに置く
+  gem 'fog'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
