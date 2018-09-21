@@ -46,7 +46,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not duplicate_user.valid?
   end
 
-  test "" do
+  test "email adresses saved downcasee" do
     mixed_case_email = "Alpha1Beta2@guMMa.cOm"
     @user.email = mixed_case_email
     @user.save
@@ -72,6 +72,37 @@ class UserTest < ActiveSupport::TestCase
     @user.microposts.create!(content: "Lorem ipsum")
     assert_difference 'Micropost.count', -1 do
       @user.destroy
+    end
+  end
+  
+  test "should follow and unfollow a user" do
+    michael = users(:michael)
+    @user.save
+    assert_not @user.following? michael
+    assert_not michael.followed? @user
+    @user.follow michael
+    assert @user.following? michael
+    assert michael.followed? @user
+    @user.unfollow michael
+    assert_not @user.reload.following? michael
+    assert_not michael.followed? @user
+  end
+
+  test "feed should have the right posts" do
+    michael = users(:michael)
+    archer = users(:archer)
+    lana = users(:lana)
+    # フォローしているユーザーの投稿を確認
+    lana.microposts.each do |post_following|
+      assert michael.feed.include?(post_following)
+    end
+    # 自身の投稿を確認
+    michael.microposts.each do |post_self|
+      assert michael.feed.include?(post_self)
+    end
+    # フォローしていないユーザーの投稿を確認
+    archer.microposts.each do |post_unfollowed|
+      assert_not michael.feed.include?(post_unfollowed)
     end
   end
 end
