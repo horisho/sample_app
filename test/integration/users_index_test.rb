@@ -31,4 +31,11 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     assert_select 'div.pagination', count: 2
     assert_select 'a', text: 'delete', count: 0
   end
+
+  test "retrieval a user the standard way" do
+    log_in_as @admin
+    get users_path
+    post retrieval_path, params: { retrieval: { string: "Archer" } }
+    assert_match 'Archer', response.body, count: 2
+  end
 end

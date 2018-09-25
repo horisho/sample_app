@@ -1,0 +1,7 @@
+<%= form_for(:retrieval, url: { controller: :users, action: :retrieval }, remote: true) do |f| %>
+
+  <%= f.label :user_name %>
+  <%= f.text_field :string, class: 'form-control' %>
+
+  <%= f.submit :retrieval, class: 'btn btn-primary' %>
+<% end %>

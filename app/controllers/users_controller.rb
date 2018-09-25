@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
-  def index
+  def index 
     @users = User.where(activated: true).paginate(page: params[:page])
     #params[:page]はpaginateによって自動的に生成される
   end
@@ -64,6 +64,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
+  end
+
+  def retrieval
+    @users = User.retrieval("#{params[:retrieval][:string]}").paginate(page: params[:page])
+    respond_to do |format|
+      format.html { render 'index' }
+      format.js
+    end
   end
 
   private

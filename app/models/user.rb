@@ -33,6 +33,12 @@ class User < ApplicationRecord
     def new_token
       SecureRandom.urlsafe_base64
     end
+
+    # 検索用
+    def retrieval(string)
+      ids = "SELECT id FROM users WHERE name like '%#{string}%'"
+      User.where("id IN (#{ids})")
+    end
   end
 
   # 永続セッションのためにユーザーをデータベースに記憶する
