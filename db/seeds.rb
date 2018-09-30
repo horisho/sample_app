@@ -33,3 +33,9 @@ following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+# ふぁぼ
+user1 = User.first
+users = User.all[2..8]
+micropost = user.microposts.first
+users.each { |user| user.like(micropost) }

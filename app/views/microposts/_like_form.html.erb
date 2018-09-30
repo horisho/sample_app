@@ -1,0 +1,9 @@
+<% unless current_user?(micropost.user) %>
+  <div>
+    <% if current_user.like?(micropost) %>
+      <%= render partial: 'microposts/unlike', locals: { micropost: micropost } %>
+    <% else %>
+      <%= render partial: 'microposts/like', locals: { micropost: micropost } %>
+    <% end %>
+  </div>
+<% end %>

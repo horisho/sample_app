@@ -1,0 +1,6 @@
+$("#micropost-<%= @micropost.id %> #like_form").html(
+  "<%= escape_javascript(render partial: 'microposts/like',
+                                locals: { micropost: @micropost }) %>");
+$("#micropost-<%= @micropost.id %> #favoritings").html(
+  "<%= escape_javascript(render partial: 'microposts/favoritings',
+                                locals: { micropost: @micropost }) %>");

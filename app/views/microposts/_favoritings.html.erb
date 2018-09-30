@@ -1,0 +1,6 @@
+<% if micropost.favoriting.any? %>
+  <%= micropost.favoriting.count %> likes.
+  <%  micropost.favoriting.each do |user| %>
+    <%=  link_to gravatar_for(user, size: 15), user %>
+  <% end %>
+<% end %>
