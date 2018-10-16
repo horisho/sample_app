@@ -29,7 +29,7 @@ gem 'bootstrap-will_paginate'
 # Use CarrierWace to add image to microposts
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'fog-aws'
+#gem "fog-aws"
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
