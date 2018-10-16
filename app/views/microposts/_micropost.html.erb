@@ -10,7 +10,7 @@
   </span>
   <span class="likes">
     <strong id="like_form">
-      <%= render partial: 'microposts/like_form', locals: { micropost: micropost } %>
+      <%= render partial: 'microposts/like_form', locals: { micropost: micropost } if logged_in? %>
     </strong>
     <strong id="favoritings">
       <%= render partial: 'microposts/favoritings', locals: { micropost: micropost } %>
